@@ -37,7 +37,7 @@ export const NotFoundPage = () => {
                             </Button>
                         </Group>
                     </Group>
-                    <Image src={`${import.meta.env.BASE_URL}cat.gif`}  alt="NotFound" maw={640} data-testid="not-found-gif" bdrs={12}/>
+                    <Image src="/ReactHeadHunterRouter/cat.gif"  alt="NotFound" maw={640} data-testid="not-found-gif" bdrs={12}/>
                 </Stack>
             </Center>
         </>
