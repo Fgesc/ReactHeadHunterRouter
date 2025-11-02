@@ -38,7 +38,7 @@ export const HomePage = () => {
         if (firstLoad.current) return;
         const text = trimmedQuery || DEFAULT_QUERY;
         dispatch(fetchJobs({ query: text, ignoreLastQueryCheck: true }));
-    }, [dispatch, cityFilter, trimmedQuery]);
+    }, [dispatch, cityFilter]);
 
     useEffect(() => {
         const params: Record<string, string> = {};
