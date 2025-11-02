@@ -1,6 +1,5 @@
 import { Stack, Title, Text, useMantineTheme, Center, Group, Button, Image } from "@mantine/core";
 import { Link } from "react-router-dom";
-import CatGif from "../../assets/cat.gif"
 
 export const NotFoundPage = () => {
     const theme = useMantineTheme();
@@ -38,7 +37,7 @@ export const NotFoundPage = () => {
                             </Button>
                         </Group>
                     </Group>
-                    <Image src={CatGif} alt="NotFound" maw={640} data-testid="not-found-gif" bdrs={12}/>
+                    <Image src={`${import.meta.env.BASE_URL}cat.gif`}  alt="NotFound" maw={640} data-testid="not-found-gif" bdrs={12}/>
                 </Stack>
             </Center>
         </>
