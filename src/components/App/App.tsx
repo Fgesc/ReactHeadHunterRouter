@@ -10,8 +10,8 @@ function App() {
         <>
             <Header />
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/vacancies" element={<Navigate to="/" replace />} />
+                <Route path="/" element={<Navigate to="/vacancies" replace />}/>
+                <Route path="/vacancies" element={<HomePage />}/>
                 <Route path="/vacancies/:id" element={<VacancyPage />} />
                 <Route path="/aboutme" element={<AboutMePage />} />
                 <Route path="*" element={<NotFoundPage/>} />

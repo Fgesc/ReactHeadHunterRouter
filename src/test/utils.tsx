@@ -33,9 +33,9 @@ export function customRender(ui: React.ReactElement, { store, route = '/', ...op
 
     const AllProviders = ({ children }: { children: React.ReactNode }) => (
         <MemoryRouter initialEntries={[route]}>
-        <Provider store={usedStore}>
-            <MantineProvider theme={theme}>{children}</MantineProvider>
-        </Provider>
+            <Provider store={usedStore}>
+                <MantineProvider theme={theme}>{children}</MantineProvider>
+            </Provider>
         </MemoryRouter>
     );
 
