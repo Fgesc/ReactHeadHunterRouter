@@ -4,9 +4,9 @@ import { Button, Container, Group, Stack, Text, TextInput, Title, useMantineThem
 import { useMediaQuery } from "@mantine/hooks";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/useRedux";
 import { setQuery, fetchJobs, setCityFilter, setSkills } from "../../reducers/JobsSlice";
-import { JobList } from "../JobList/JobList";
-import { JobFilters } from "../JobFilters/JobFilters";
-import { CityButtons } from "../CityButtons/CityButtons";
+import { JobList } from "../../components/JobList";
+import { JobFilters } from "../../components/JobFilters/JobFilters";
+import { CityButtons } from "../../components/CityButtons/CityButtons";
 import SearchIcon from "../../assets/search.svg";
 import styles from "./homePage.module.css";
 import { DEFAULT_CITY, DEFAULT_QUERY, DEFAULT_SKILLS } from "../../constants/constantsMain";

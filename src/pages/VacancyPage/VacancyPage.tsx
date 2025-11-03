@@ -4,7 +4,7 @@ import { Box, Button, Card, Group, Stack, Title, Text, useMantineTheme, Loader, 
 import { VacancyService } from "../../api/VacancyService";
 import type { typeVacancy } from "../../types/typeVacancy";
 import { formatSalary } from "../../utils/formatSalary";
-import { NotFoundPage } from "../NotFoundPage";
+import { NotFoundPage } from "../../pages/NotFoundPage";
 import styles from "./VacancyPage.module.css";
 
 export const VacancyPage = memo(() => {

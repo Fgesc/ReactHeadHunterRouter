@@ -1,9 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-// import { http, HttpResponse } from "msw";
-// import { server } from "../../mocks/server";
-// import { BASE_URL } from "../../constants/constantsApi";
 import { customRender } from "../../test/utils";
 import { HomePage } from "./HomePage";
 
@@ -57,6 +54,7 @@ describe("HomePage Компонент", () => {
         expect(input).toBeInTheDocument();
         expect(button).toBeInTheDocument();
 
+        await userEvent.clear(input);
         await userEvent.type(input, "React");
         expect(input).toHaveValue("React");
     });
@@ -89,22 +87,4 @@ describe("HomePage Компонент", () => {
             expect(screen.queryByTestId("pill-React")).not.toBeInTheDocument();
         });
     });
-
-    // it("Должен отображать сообщение об ошибке, если загрузка списка карточек завершилась неудачей", async () => {
-    //     server.use(
-    //         http.get(`${BASE_URL}*`, () => {
-    //             return HttpResponse.error();
-    //         })
-    //     );
-
-    //     customRender(<HomePage />);
-    //     const errorMessage = await screen.findByTestId("jobs-error");
-
-    //     screen.debug();
-    //     expect(errorMessage).toBeInTheDocument();
-    //     expect(errorMessage).toHaveTextContent(/Ошибка:/);
-    //     expect(screen.queryByTestId("custom-loader")).not.toBeInTheDocument();
-
-    // });
-
 });

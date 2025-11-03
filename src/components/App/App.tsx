@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "../Header/Header";
-import { HomePage } from "../HomePage";
-import { AboutMePage } from "../AboutMePage";
-import { VacancyPage } from "../VacancyPage";
-import { NotFoundPage } from "../NotFoundPage";
+import { HomePage } from "../../pages/HomePage";
+import { AboutMePage } from "../../pages/AboutMePage";
+import { VacancyPage } from "../../pages/VacancyPage";
+import { NotFoundPage } from "../../pages/NotFoundPage";
 
 function App() {
     return (
