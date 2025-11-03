@@ -7,7 +7,7 @@ export const Header = () => {
     const theme = useMantineTheme();
 
     const location = useLocation();
-    const isCurrent = location.pathname === '/';
+    const isCurrent = location.pathname === '/vacancies';
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (isCurrent) e.preventDefault();
@@ -25,7 +25,7 @@ export const Header = () => {
             }}
         >
             <Group justify="space-between" align="center" maw={828}>
-                <Link to="/vacancies" style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleClick}>
+                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleClick}>
                     <Group align="center" gap="xs">
                         <img src={HHIcon} alt="HH" data-testid="logo-hh"/>
                         <Text fw={600} data-testid="header-title">.FrontEnd</Text>

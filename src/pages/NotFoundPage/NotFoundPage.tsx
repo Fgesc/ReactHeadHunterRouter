@@ -20,7 +20,7 @@ export const NotFoundPage = () => {
                         <Group justify="flex-start">
                             <Button
                                 component={Link}
-                                to={"/vacancies"}
+                                to={"/"}
                                 data-testid={"notFound-view-btn"}
                                 w={135}
                                 h={42}
