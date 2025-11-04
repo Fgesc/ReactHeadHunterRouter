@@ -6,7 +6,8 @@ const JobService = {
     async searchByQuery(
         query: string,
         page = 0,
-        area: string | null = null
+        area: string | null = null,
+        signal?: AbortSignal
     ): Promise<ApiResponse> {
         const url = new URL(BASE_URL);
         url.searchParams.set("text", query);
@@ -19,7 +20,7 @@ const JobService = {
             url.searchParams.set("area", area);
         }
 
-        const response: ApiResponse = await ky.get(url.toString()).json<ApiResponse>();
+        const response: ApiResponse = await ky.get(url.toString(), { signal }).json<ApiResponse>();
 
         const safeItems: typeJob[] = response.items.map((job: any) => ({
             id: job.id ?? crypto.randomUUID(), 

@@ -17,6 +17,8 @@ export const initialState: JobsState = {
     skills: DEFAULT_SKILLS, 
 };
 
+let lastController: AbortController | null = null;
+
 export const fetchJobs = createAsyncThunk<
     typeJob[],
     FetchJobsArgs,
@@ -37,8 +39,14 @@ export const fetchJobs = createAsyncThunk<
 
     try {
 
+        if (lastController) lastController.abort();
+        const controller = new AbortController();
+        lastController = controller;
+
         const { cityFilter } = getState().jobs;
-        const data = await JobService.searchByQuery(trimmed, 0, cityFilter);
+        const data = await JobService.searchByQuery(trimmed, 0, cityFilter, controller.signal);
+
+        lastController = null;
 
         if (!data.items?.length) {
             return rejectWithValue("По вашему запросу ничего не найдено");
@@ -46,6 +54,7 @@ export const fetchJobs = createAsyncThunk<
 
         return data.items;
     } catch (e) {
+        if ((e as any).name === "AbortError") return rejectWithValue("aborted");
         if (e instanceof HTTPError) {
             const status = e.response.status;
             const statusText = e.response.statusText;
@@ -122,12 +131,9 @@ const jobsSlice = createSlice({
         })
 
         .addCase(fetchJobs.rejected, (state, action) => {
+            if (action.payload === "aborted") return;
             state.loading = false;
-
-            if (action.payload === "same-query" || action.payload === "empty-query") {
-            return state;
-            }
-
+            if (action.payload === "same-query" || action.payload === "empty-query") return state;
             state.error = action.payload || "Ошибка";
             state.jobs = [];
         });
