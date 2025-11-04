@@ -7,8 +7,6 @@ export const VacancyService = {
             const url = `${BASE_URL}/${id}`;
 
             const vacancyData: any = await ky.get(url).json();
-
-            console.log("Ответ от API hh.ru:", vacancyData);
             
             const vacancy: typeVacancy = {
                 id: vacancyData.id ?? crypto.randomUUID(),
