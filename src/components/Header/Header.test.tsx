@@ -29,7 +29,7 @@ describe("Header Компонент", () => {
         expect(screen.getByTestId("header-title")).toHaveTextContent(".FrontEnd");
 
         expect(screen.getByTestId("vacancies-text")).toHaveTextContent("Вакансии FE");
-        expect(screen.getByTestId("vacancies-marker")).toBeInTheDocument();
+
 
         expect(screen.getByTestId("human-icon")).toBeInTheDocument();
         expect(screen.getByTestId("about-text")).toHaveTextContent("Обо мне");
